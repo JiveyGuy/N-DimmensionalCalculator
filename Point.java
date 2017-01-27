@@ -1,7 +1,7 @@
 /*
  * Jason Ivey 1.25.17
  * 
- * Beta Build version 1.0.0 not stable
+ * Beta Build version 1.0.1 not stable
  * 
  * Point object is a point of n-dimmensions
  * 
@@ -19,7 +19,7 @@ public class Point{
   public Point(double...inputCoordinates){
     
     //input vallue iterates over inputCoordinates array
-    for (double inputVal: inputCoordinates ){
+    for (double inputVal : inputCoordinates ){
       coordinates.enqueue(inputVal); 
     }
     
@@ -27,6 +27,86 @@ public class Point{
     dimmension = inputCoordinates.length;
   }
   
- 
+  // returns a copy of this point
+  public Point copy(){
+    
+    //copy of coordinates so that coordinates will not be dequeued
+    Que coordinateCopy = coordinates.copy();
+    
+    //array to be passed in argument for point
+    double[] argumentalArray = new double[dimmension];
+    
+    for(int iterations = 0; iterations < dimmension; iterations++){
+      argumentalArray[iterations] = coordinateCopy.deque(); 
+    }
+    
+    Point result = new Point(argumentalArray);
+    return result;
+  }
+  
+  /* ------------------------------------------------------------------*
+   *          Getter and setter methods ahead, nothing special         *
+   * ------------------------------------------------------------------*/
+  
+  public void setCoordinates(double[] input){
+    
+    for (double inputVal : input ){
+      coordinates.enqueue(inputVal); 
+    }
+    
+  }
+  
+  //returns coordinates in array form
+  public double[] getCoordinates(){
+    
+    //copy of coordinates so that coordinates will not be dequeued
+    Que coordinateCopy = coordinates.copy();
+    
+    //resulting array
+    double[] result = new double[dimmension];
+    
+    for(int iterations = 0; iterations < dimmension; iterations++){
+      result[iterations] = coordinateCopy.deque(); 
+    }
+    
+    return result;
+  }
+  
+  //Returns int value of dimmensional level
+  public int getDimmension(){
+   return dimmension; 
+  }
+  
+  //To string method for formatting human readable coordinates
+  public String toString(){
+    Que coordinateCopy = coordinates.copy();
+    
+    String result = "( ";
+    for(int iterations = 0; iterations < dimmension; iterations++){
+      result += coordinateCopy.deque() + ", ";
+    }
+    
+    result = result.substring(0, result.length()-2) + " )";
+    
+    return result;
+    
+  }
+  
+  //Comparison method
+  public boolean equals(Point nonLocalPoint){
+    boolean result = true;
+    
+    double[] nonLocalCoordinates = nonLocalPoint.getCoordinates();
+    double[] localCoordinates = this.getCoordinates();
+    
+    if ( nonLocalCoordinates.length != localCoordinates.length )
+      return false;
+    
+    for ( int iterations = 0; iterations < localCoordinates.length; iterations++){
+      result = result && localCoordinates[iterations] == nonLocalCoordinates[iterations]; 
+    }
+    
+    return result;
+  }
   
 }

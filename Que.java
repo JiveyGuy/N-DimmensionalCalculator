@@ -1,5 +1,12 @@
+/*
+ * Jason Ivey 1.25.17
+ * 
+ * Lab 1 Beta Build version 1.0.1 not stable
+ * 
+ * Que data structure of FIFO type
+ * 
+ */
 
-//Jason Ivey Que class for FIFO data structure
 public class Que{
   //makes use of this nested private exception
   
@@ -69,7 +76,7 @@ public class Que{
     double[] intermediateVal = copy(first);
     Que result = new Que();
     for ( double value : intermediateVal ) {
-     result.enqueue(value); 
+      result.enqueue(value); 
     }
     return result;
   }
@@ -96,6 +103,7 @@ public class Que{
   }
 }
 
+//exception specific to this Que data type
 class EmptyQueException extends Exception{
   public EmptyQueException(){
     super("The que is empty."); 

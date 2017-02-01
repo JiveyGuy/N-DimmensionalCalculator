@@ -1,3 +1,5 @@
+package Lab001;
+
 // Jason Ivey Node Class for Que Data Structure
 public class Node{
   //private double value is the numeric value of a node 
@@ -25,13 +27,14 @@ public class Node{
   }
   
   public Node getNext(){
-   return this.next; 
+   return this.next; //returns the next node
   }
   
   public void setVal(double inputVal){
-    this.value = inputVal;
+    this.value = inputVal; //sets a certian node's value
   }
   
+  //sets next node
   public void setNext(Node inputNode){
    this.next = inputNode; 
   }

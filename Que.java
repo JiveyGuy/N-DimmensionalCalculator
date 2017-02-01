@@ -1,7 +1,9 @@
+package Lab001;
+
 /*
  * Jason Ivey 1.25.17
  * 
- * Lab 1 Beta Build version 1.0.1 not stable
+ * Lab 1 Beta Build version 1.0.1 
  * 
  * Que data structure of FIFO type
  * 
@@ -72,7 +74,7 @@ public class Que{
     return 666.0;
   }
   
-  public Que copy(){
+  public Que copy(){ //diferents signature for a copy method
     double[] intermediateVal = copy(first);
     Que result = new Que();
     for ( double value : intermediateVal ) {
@@ -81,6 +83,7 @@ public class Que{
     return result;
   }
   
+  //returns a copy of a que in doubles
   private double[] copy(Node iterator){
     int length = this.length();
     double[] result = new double[length];
@@ -92,10 +95,13 @@ public class Que{
     
     return result;
   }
+  
+  //helper method for length that is recursive
   public int length(){
     return length(first); 
   }
   
+  //Returns length of que
   private int length(Node iterator){
     if(iterator == null )
       return 0;

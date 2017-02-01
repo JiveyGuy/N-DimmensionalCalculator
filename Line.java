@@ -1,7 +1,9 @@
+package Lab001;
+
 /*
  * Jason Ivey 1.25.17
  * 
- * Lab 1 Beta Build version 1.0.1 not stable
+ * Lab 1 Beta Build version 1.0.1 
  * 
  * Line object for Lab 1
  * 
@@ -25,9 +27,9 @@ public class Line{
       throw new DimmensionalError("Line Construction failed due to points being in different dimmensions!");
     
     //Seting object var's to parameters
-    point[0] = one.copy();
+    point[0] = one;
     
-    point[1] = two.copy();
+    point[1] = two;
     
   }
   
@@ -88,7 +90,7 @@ public class Line{
     
     for(int x = 0; x < point[0].getDimmension(); x++)
     {
-      addition += Math.pow(( start[x] - end[x] ), 2);     
+      addition += Math.pow(( start[x] - end[x] ), 2); //See euclidian distance     
     }
     
     result = Math.sqrt(addition);
